@@ -75,3 +75,7 @@ fun Greeting(name: String) {
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/tweaking-the-ui-2.png?raw=true" width="300">
 
+<br/>
+
+### 4. Columns and Rows
+
