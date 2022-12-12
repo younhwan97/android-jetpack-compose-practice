@@ -17,7 +17,7 @@ Compose는 다음과 같은 특징을 통해 UI를 쉽고 빠르게 작성할 �
 Android Studio -> New Project -> Empty Compose Activity
 
 <div align="center">
-    <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/create-compose-project-step-1.png?raw=true" width="700">
+    <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/create-compose-project-step-1.png?raw=true" width="700" height="500">
 </div>
 
 (min SDK: API 21)
@@ -54,10 +54,8 @@ fun Greeting(name: String) {
 }
 ```
 <div align="center">
-    <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/tweaking-the-ui.png?raw=true" width="500">
+    <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/tweaking-the-ui.png?raw=true" width="350">
 </div>
-
-(배경색만 바꿨지만 Material Design에 의해 글자색도 함께 바뀐 것을 볼 수 있다.)
 
 <br/>
 
@@ -77,13 +75,54 @@ fun Greeting(name: String) {
 ```
 
 <div align="center">
-    <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/tweaking-the-ui-2.png?raw=true" width="500">
+    <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/tweaking-the-ui-2.png?raw=true" width="350">
 </div>
 
 <br/>
 
 ### 4. Columns and Rows
 
+Compose에서는 다양한 UI를 생성하기 위해 `Column`, `Row` 그리고 `Box` 표준 레이아웃을 사용할 수 있다.
+
 <div align="center">
-    <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/columns-and-rows-1.png?raw=true" width="700">
+    <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/columns-and-rows-1.png?raw=true" width="550">
 </div>
+
+```Kotlin
+@Composable
+fun MyApp(names: List<String> = listOf("World", "Compose")) {
+    // A surface container using the 'background' color from the theme
+    Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+        Column(
+            modifier = Modifier.padding(vertical = 4.dp)
+        ) {
+            for (name in names) {
+                Greeting(name = name)
+            }
+        }
+    }
+}
+
+@Composable
+fun Greeting(name: String) {
+    Surface(
+        color = MaterialTheme.colors.primary,
+        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+    ) {
+        Row(modifier = Modifier.padding(16.dp)) {
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+            ) {
+                Text(text = "Hello")
+
+                Text(text = "$name!")
+            }
+
+            OutlinedButton(onClick = { /*TODO*/ }) {
+                Text("Show more")
+            }
+        }
+    }
+}
+```
