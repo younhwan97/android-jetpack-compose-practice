@@ -33,11 +33,11 @@ private fun Greeting(name: String) {
 }
 ```
 
-<br>
+<br/>
 
 ### 3. Tweaking the UI
 
-#### Surface, color
+#### **Surface, color**
 
 Greeting에 다른 배경 색상을 설정하기 위해 Text 컴포저블을 Surface로 래핑한다. 그리고 Surface의 색상 속성에 MaterialTheme.colorScheme.primary를 적용한다.
 
@@ -56,7 +56,9 @@ fun Greeting(name: String) {
 
 (배경색만 바꿨지만 Material Design에 의해 글자색도 함께 바뀐 것을 볼 수 있다.)
 
-#### modifier
+<br/>
+
+#### **modifier**
 
 Surface 및 Text와 같은 대부분의 Compose UI 요소는 modifier라는 매개변수를 허용한다. modifer를 통해 composable을 다양하게 수정할 수 있다.
 
@@ -70,4 +72,6 @@ fun Greeting(name: String) {
     }
 }
 ```
+
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/tweaking-the-ui-2.png?raw=true" width="300">
 
