@@ -14,6 +14,6 @@ Compose는 다음과 같은 특징을 통해 UI를 쉽고 빠르게 작성할 �
 
 Android Studio -> New Project -> Empty Compose Activity
 
-
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/create-compose-project-step-1.png?raw=true" width="700">
 
 (min SDK: API 21)
