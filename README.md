@@ -128,3 +128,18 @@ fun Greeting(name: String) {
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/columns-and-rows-2.png?raw=true" width="550">
 
+<br/>
+
+### 5. State in Compose
+
+지금까지 정적인 레이아웃을 생성했다면, 이제는 state를 이용해 사용자와 상호작용을 할 수 있다.
+
+아래와 같이 버튼을 클릭했을 때 영역이 확장되는 레이아웃을 만들어 본다.
+
+<img src="https://developer.android.com/static/codelabs/jetpack-compose-basics/img/783e161e8bb1b2d5.gif?hl=ko" width="550" height="500">
+
+이러한 레이아웃을 만들기 위해서 각 항목이 펼치진 상태인지를 가리키는 값을 어딘가에 저장해야 한다. 이 값을 **state**라고 한다.
+
+요소마다 이러한 값이 필요하므로 이 값은 Greeting 컴포저블에 위치하는게 있어야 한다.
+
+
