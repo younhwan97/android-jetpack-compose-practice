@@ -16,7 +16,9 @@ Compose는 다음과 같은 특징을 통해 UI를 쉽고 빠르게 작성할 �
 
 Android Studio -> New Project -> Empty Compose Activity
 
-<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/create-compose-project-step-1.png?raw=true" width="700">
+<div align="center">
+    <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/create-compose-project-step-1.png?raw=true" width="700">
+</div>
 
 (min SDK: API 21)
 
@@ -51,8 +53,9 @@ fun Greeting(name: String) {
     }
 }
 ```
-
-<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/tweaking-the-ui.png?raw=true" width="300">
+<div align="center">
+    <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/tweaking-the-ui.png?raw=true" width="500">
+</div>
 
 (배경색만 바꿨지만 Material Design에 의해 글자색도 함께 바뀐 것을 볼 수 있다.)
 
@@ -73,9 +76,14 @@ fun Greeting(name: String) {
 }
 ```
 
-<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/tweaking-the-ui-2.png?raw=true" width="300">
+<div align="center">
+    <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/tweaking-the-ui-2.png?raw=true" width="500">
+</div>
 
 <br/>
 
 ### 4. Columns and Rows
 
+<div align="center">
+    <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/columns-and-rows-1.png?raw=true" width="700">
+</div>
