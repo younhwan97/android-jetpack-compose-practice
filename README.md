@@ -16,9 +16,7 @@ Compose는 다음과 같은 특징을 통해 UI를 쉽고 빠르게 작성할 �
 
 Android Studio -> New Project -> Empty Compose Activity
 
-<div align="center">
-    <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/create-compose-project-step-1.png?raw=true" width="700" height="500">
-</div>
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/create-compose-project-step-1.png?raw=true" width="700" height="500">
 
 (min SDK: API 21)
 
@@ -53,9 +51,8 @@ fun Greeting(name: String) {
     }
 }
 ```
-<div align="center">
-    <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/tweaking-the-ui.png?raw=true" width="350">
-</div>
+
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/tweaking-the-ui.png?raw=true" width="350">
 
 <br/>
 
@@ -74,19 +71,15 @@ fun Greeting(name: String) {
 }
 ```
 
-<div align="center">
-    <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/tweaking-the-ui-2.png?raw=true" width="350">
-</div>
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/tweaking-the-ui-2.png?raw=true" width="350">
 
 <br/>
 
 ### 4. Columns and Rows
 
-Compose에서는 다양한 UI를 생성하기 위해 `Column`, `Row` 그리고 `Box` 표준 레이아웃을 사용할 수 있다.
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/columns-and-rows-1.png?raw=true" width="550">
 
-<div align="center">
-    <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/columns-and-rows-1.png?raw=true" width="550">
-</div>
+Compose에서는 다양한 UI를 생성하기 위해 `Column`, `Row` 그리고 `Box` 표준 레이아웃을 사용할 수 있다.
 
 ```Kotlin
 @Composable
@@ -126,3 +119,6 @@ fun Greeting(name: String) {
     }
 }
 ```
+
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/columns-and-rows-2.png?raw=true" width="550">
+
