@@ -24,7 +24,9 @@ Android Studio -> New Project -> Empty Compose Activity
 
 ### 2. Composable
 
-Composable은 `@Composable`이라는 주석이 달린 일반 함수이다. 함수 내부에서 다른 `@Composable`를 호출할 수 있으며, 새로운 UI를 생성할 때 해당 함수만 있으면 된다.
+Composable은 `@Composable`이라는 주석이 달린 일반 함수이다. 
+
+함수 내부에서 다른 `@Composable`를 호출할 수 있으며, 새로운 UI를 생성할 때 해당 함수만 있으면 된다.
 
 ```Kotlin
 @Composable
@@ -39,7 +41,9 @@ private fun Greeting(name: String) {
 
 #### **Surface, color**
 
-Greeting에 다른 배경 색상을 설정하기 위해 Text 컴포저블을 Surface로 래핑한다. 그리고 Surface의 색상 속성에 MaterialTheme.colorScheme.primary를 적용한다.
+Greeting에 다른 배경 색상을 설정하기 위해 Text 컴포저블을 Surface로 래핑한다. 
+
+그리고 Surface의 색상 속성에 MaterialTheme.colorScheme.primary를 적용한다.
 
 ```Kotlin
 @Composable
@@ -58,7 +62,9 @@ fun Greeting(name: String) {
 
 #### **modifier**
 
-Surface 및 Text와 같은 대부분의 Compose UI 요소는 modifier라는 매개변수를 허용한다. modifer를 통해 composable을 다양하게 수정할 수 있다.
+Surface 및 Text와 같은 대부분의 Compose UI 요소는 modifier라는 매개변수를 허용한다. 
+
+modifer를 통해 composable을 다양하게 수정할 수 있다.
 
 ```Kotlin
 @Composable
