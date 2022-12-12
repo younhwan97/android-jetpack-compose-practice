@@ -39,7 +39,7 @@ private fun Greeting(name: String) {
 
 ### 3. Tweaking the UI
 
-#### **Surface, color**
+#### 3-1. Surface, color
 
 Greeting에 다른 배경 색상을 설정하기 위해 Text 컴포저블을 Surface로 래핑한다. 
 
@@ -60,7 +60,7 @@ fun Greeting(name: String) {
 
 <br/>
 
-#### **modifier**
+#### 3-2. modifier
 
 Surface 및 Text와 같은 대부분의 Compose UI 요소는 modifier라는 매개변수를 허용한다. 
 
