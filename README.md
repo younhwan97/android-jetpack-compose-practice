@@ -24,7 +24,7 @@ Android Studio -> New Project -> Empty Compose Activity
 
 ### 2. Composable
 
-Composable은 `@Composable`이라는 주석이 달린 일반 함수이다. 
+컴포저블은 `@Composable`이라는 주석이 달린 일반 함수이다. 
 
 함수 내부에서 다른 `@Composable`를 호출할 수 있으며, 새로운 UI를 생성할 때 해당 함수만 있으면 된다.
 
@@ -210,7 +210,7 @@ fun Greeting(name: String) {
 
 위와 같은 방법을 통해 컴포저블이 리컴포지션 될 때마다 state 값이 재설정 되지 않도록 해야한다.
 
-이제 `expanded` state를 이용해 항목이 펼쳐지도록 하기 위해 다음과 같이 코드를 작성한다.
+이제 `expanded` state에 따라 항목이 펼쳐지도록 하기 위해 다음과 같이 코드 작성하면 된다.
 
 ```Kotlin
 @Composable
@@ -240,3 +240,138 @@ fun Greeting(name: String) {
     }
 }
 ```
+
+<br/>
+
+### 6. State hoisting
+
+State hoisting이란 state를 상위 항목으로 이동시키는 과정을 의미한다. 
+
+state를 상위 항목으로 올릴 수 있게 되면 상태가 중복되는 버그를 막고, 컴포저블을 재사용하는데 도움이 된다. 
+
+<br/>
+
+반면 컴포저블을 상위 항목에서 제어하지 않는 경우는 hoisting 해서는 안된다. 앞선 Greeting의 예제가 그랬다. 
+
+다음 코드를 이용해 온보딩 화면을 구현하고, hoisting에 대해 알아본다. 
+
+```Kotlin
+@Composable
+fun OnboardingScreen(modifier: Modifier = Modifier) {
+    // TODO: This state should be hoisted
+    var shouldShowOnboarding by remember { mutableStateOf(true) }
+
+    Column(
+        modifier = modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text("Welcome to the Basics Codelab!")
+        Button(
+            modifier = Modifier.padding(vertical = 24.dp),
+            onClick = { shouldShowOnboarding = false }
+        ) {
+            Text("Continue")
+        }
+    }
+}
+
+@Preview(showBackground = true, widthDp = 320, heightDp = 320)
+@Composable
+fun OnboardingPreview() {
+    BasicsCodelabTheme {
+        OnboardingScreen()
+    }
+}
+```
+
+그리고 `shouldShowOnboarding` state에 따라 OnboardingScreen 또는 Greetings을 보여줄지 선택한다. 
+
+위 OnboardingScreen 컴포저블에서 `shouldShowOnboarding` state는 hoisting 돼야 한다.
+
+```Kotlin
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            BasicsComposeTheme {
+                MyApp()
+            }
+        }
+    }
+}
+
+@Composable
+fun MyApp() {
+    var shouldShowOnboarding by remember { mutableStateOf(true) }
+
+    if (shouldShowOnboarding) {
+        OnboardingScreen(onContinueClicked = { shouldShowOnboarding = false })
+    } else {
+        Greetings()
+    }
+}
+
+// Greeting
+@Composable
+fun Greetings(names: List<String> = listOf("World", "Compose")) {
+    // A surface container using the 'background' color from the theme
+    Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+        Column(
+            modifier = Modifier.padding(vertical = 4.dp)
+        ) {
+            for (name in names) {
+                Greeting(name = name)
+            }
+        }
+    }
+}
+
+@Composable
+fun Greeting(name: String) {
+    val expanded = remember { mutableStateOf(false) }
+    val extraPadding = if (expanded.value) 48.dp else 0.dp
+
+    Surface(
+        color = MaterialTheme.colors.primary,
+        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+    ) {
+        Row(modifier = Modifier.padding(16.dp)) {
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(bottom = extraPadding)
+            ) {
+                Text(text = "Hello")
+
+                Text(text = "$name!")
+            }
+
+            OutlinedButton(onClick = { expanded.value = !expanded.value }) {
+                Text(if (expanded.value) "Show less" else "Show more")
+            }
+        }
+    }
+}
+
+// Onboarding
+@Composable
+fun OnboardingScreen(
+    onContinueClicked: () -> Unit
+) {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text("Welcome to the Basics Codelab!")
+        Button(
+            modifier = Modifier.padding(vertical = 24.dp),
+            onClick = onContinueClicked
+        ) {
+            Text("Continue")
+        }
+    }
+}
+```
+
