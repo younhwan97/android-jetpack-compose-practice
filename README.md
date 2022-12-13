@@ -468,4 +468,7 @@ fun SearchBar(
 
 SearchBar 컴포저블 함수는 modifier 매개변수를 받아서 TextField에 전달한다.
 
- 이 방식은 Compose 가이드라인에 따른 권장사항입니다. 이 방식을 사용하면 메서드의 호출자가 컴포저블의 디자인과 분위기를 수정할 수 있어 유연성이 높아지고 재사용이 가능하게 됩니다. 이 Codelab의 모든 컴포저블에 권장사항을 적용합니다.
+이 방식은 Compose 가이드라인에 따른 권장사항이며, 이 방식을 사용하면 메서드의 호출자가 컴포저블의 디자인과 분위기를 수정할 수 있어 유연성이 높아지고 재사용이 가능하게 된다.
+
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-search-bar.png?raw=true" width="350">
+
