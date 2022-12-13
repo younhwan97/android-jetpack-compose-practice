@@ -583,3 +583,46 @@ fun FavoriteCollectionCard(
 ```
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-element-4.png?raw=true" width="350">
+
+<br/>
+
+#### 4-2. LazyGrid
+
+```Kotlin
+private val favoriteCollectionsData = listOf(
+    R.drawable.fc1_short_mantras to R.string.fc1_short_mantras,
+    R.drawable.fc2_nature_meditations to R.string.fc2_nature_meditations,
+    R.drawable.fc3_stress_and_anxiety to R.string.fc3_stress_and_anxiety,
+    R.drawable.fc4_self_massage to R.string.fc4_self_massage,
+    R.drawable.fc5_overwhelmed to R.string.fc5_overwhelmed,
+    R.drawable.fc6_nightly_wind_down to R.string.fc6_nightly_wind_down
+).map { DrawableStringPair(it.first, it.second) }
+
+private data class DrawableStringPair(
+    @DrawableRes val drawable: Int,
+    @StringRes val text: Int
+)
+
+@Composable
+fun FavoriteCollectionsGrid(
+    modifier: Modifier = Modifier
+) {
+    LazyHorizontalGrid(
+        rows = GridCells.Fixed(2),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 16.dp),
+        modifier = modifier.height(120.dp)
+    ) {
+        items(favoriteCollectionsData) { item ->
+            FavoriteCollectionCard(
+                drawable = item.drawable,
+                text = item.text
+            )
+        }
+    }
+}
+```
+
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-lazy-grid.png?raw=true" width="550">
+
