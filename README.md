@@ -626,3 +626,35 @@ fun FavoriteCollectionsGrid(
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-lazy-grid.png?raw=true" width="550">
 
+<br/>
+
+### 5. Home Section
+
+"ALIGN YOUR BODY"와 "FAVORITE COLLECTIONS"는 제목과 섹션으로 서로 구성이 같아 컴포저블로 만들어 재사용 할 수 있다.
+
+이때 섹션에 들어갈 내용은 동적으로 바뀐다. 이 유연한 섹션 컨테이너를 구현하려면 슬롯 API를 사용해야 한다.
+
+```Kotlin
+@Composable
+fun HomeSection(
+    @StringRes title: Int,
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit
+) {
+    Column(
+        modifier = modifier
+    ) {
+        Text(
+            stringResource(id = title).uppercase(Locale.getDefault()),
+            style = MaterialTheme.typography.h2,
+            modifier = Modifier
+                .paddingFromBaseline(bottom = 8.dp, top = 40.dp)
+                .padding(horizontal = 16.dp)
+        )
+        content()
+    }
+}
+```
+
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-home-section.png?raw=true" width="550">
+
