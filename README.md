@@ -666,8 +666,11 @@ fun HomeSection(
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
     Column(
-        modifier = modifier.padding(vertical = 16.dp)
+        modifier = modifier
+            .verticalScroll(rememberScrollState())
     ) {
+        Spacer(modifier = Modifier.height(16.dp))
+        
         SearchBar(
             modifier = Modifier.padding(horizontal = 16.dp)
         )
@@ -679,9 +682,41 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         HomeSection(title = R.string.favorite_collections) {
             FavoriteCollectionsGrid()
         }
+
+        Spacer(modifier = Modifier.height(16.dp))
     }
 }
 ```
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-home-screen.png?raw=true" width="550">
+
+<br/>
+
+### 7. BottomNavigation
+
+```Kotlin
+@Composable
+private fun SootheBottomNavigation(modifier: Modifier = Modifier) {
+    BottomNavigation(
+        backgroundColor = MaterialTheme.colors.background,
+        modifier = modifier
+    ) {
+        BottomNavigationItem(
+            selected = true,
+            onClick = { },
+            icon = { Icon(Icons.Default.Spa, contentDescription = null) },
+            label = { Text(stringResource(id = R.string.bottom_navigation_home)) }
+        )
+
+        BottomNavigationItem(
+            selected = false,
+            onClick = { },
+            icon = { Icon(Icons.Default.AccountCircle, contentDescription = null) },
+            label = { Text(stringResource(id = R.string.bottom_navigation_profile)) }
+        )
+    }
+}
+```
+
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-bottom-navigation.png?raw=true" width="550">
 
