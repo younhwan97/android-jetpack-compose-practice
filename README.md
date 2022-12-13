@@ -720,3 +720,22 @@ private fun SootheBottomNavigation(modifier: Modifier = Modifier) {
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-bottom-navigation.png?raw=true" width="550">
 
+<br/>
+
+### 8. Scaffold
+
+```Kotlin
+@Composable
+fun MySootheApp() {
+    MySootheTheme {
+        Scaffold(
+            bottomBar = { SootheBottomNavigation() }
+        ) { padding ->
+            HomeScreen(Modifier.padding(padding))
+        }
+    }
+}
+```
+
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout.png?raw=true" width="350">
+
