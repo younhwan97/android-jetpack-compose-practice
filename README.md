@@ -379,9 +379,31 @@ fun OnboardingScreen(
 
 ### 7. Creating a performant lazy list
 
-기존 XML의 RecyclerView에 해당하는 부분으로, Greeting의 항목이 늘어났을 때 처리하는 방법에 대해 알아본다.
+기존 XML의 RecyclerView에 해당하는 부분으로, Greeting 항목이 늘어났을 때 처리하는 방법에 대해 알아본다.
 
-더이상 `ViewGroup`, `LayoutManager`, `ViewHolder`, `Adapter`, `DiffUtil`, `Item layout`를 사용 할 필요가 없다.
+```Kotlin
+@Composable
+fun Greetings(names: List<String> = List(1000) {"$it"}) {
+    // A surface container using the 'background' color from the theme
+    Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+        Column(
+            modifier = Modifier.padding(vertical = 4.dp)
+        ) {
+            LazyColumn {
+                items (names) { name ->
+                    Greeting(name = name)
+                }
+            }
+        }
+    }
+}
+```
+
+<img src="https://developer.android.com/static/codelabs/jetpack-compose-basics/img/2e29949d9d9b8690.gif?hl=ko" width="350" height="500">
+
+더이상 리스트를 만들기 위해 `ViewGroup`, `LayoutManager`, `ViewHolder`, `Adapter`, `DiffUtil`, `Item layout`를 사용 할 필요가 없다.
 
 Compose에서는 `LazyColumn` 컴포저블에 데이터만 넣으면 (프레임워크가) 알아서 그려준다.
+
+<br/>
 
