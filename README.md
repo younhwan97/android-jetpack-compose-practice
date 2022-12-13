@@ -503,5 +503,8 @@ fun AlignYourBodyElement(
         )
     }
 }
-
 ```
+
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-element-1.png?raw=true" width="150">
+
+
