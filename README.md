@@ -407,3 +407,9 @@ Compose에서는 `LazyColumn` 컴포저블에 데이터만 넣으면 (프레임�
 
 ## <a href="https://github.com/younhwan97/android-jetpack-compose-practice/tree/main/jetpack-compose-basic-layout">Compose basic layout</a>
 
+Compose baisc에서 기본적인 compose 사용법에 대해 익혔다면, 지금부터는 다음과 같은 디자인 가이드라인에 따라 앱 디자인을 구현한다.
+
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-design-guide.png?raw=true" width="350">
+
+시작하기 앞서 [Android Github BasicLayoutsCodelab](https://github.com/googlecodelabs/android-compose-codelabs/tree/main/BasicLayoutsCodelab)에서 기본 테마 및 리소스가 포함된 프로젝트를 복제한다.
+
