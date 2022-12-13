@@ -140,6 +140,72 @@ fun Greeting(name: String) {
 
 이러한 레이아웃을 만들기 위해서 각 항목이 펼치진 상태인지를 가리키는 값을 어딘가에 저장해야 한다. 이 값을 **state**라고 한다.
 
-요소마다 이러한 값이 필요하므로 이 값은 Greeting 컴포저블에 위치하는게 있어야 한다.
+요소마다 이러한 값이 필요하므로 이 값은 Greeting 컴포저블에 위치해야 한다.
 
+```Kotlin
+@Composable
+fun Greeting(name: String) {
+    var expanded = false
 
+    Surface(
+        color = MaterialTheme.colors.primary,
+        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+    ) {
+        Row(modifier = Modifier.padding(16.dp)) {
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+            ) {
+                Text(text = "Hello")
+
+                Text(text = "$name!")
+            }
+
+            OutlinedButton(onClick = { expanded = !expanded }) {
+                Text(if (expanded) "Show less" else "Show more")
+            }
+        }
+    }
+}
+```
+
+Greeting 컴포저블에 `expanded` state를 만들고 Button 컴포저블의 클릭이벤트로 값을 변경하도록 했다. 
+
+하지만 위 코드는 정상적으로 작동하지 않는다. 그 이유는 리컵포지션에 있다. 
+
+<br>
+
+Jetpack compose에서 컴포저블의 state가 변경되면 해당 컴포저블 함수만을 다시호출해 UI를 다시 그린다. 
+
+이때 `expanded` state 또한 다시 생성, 초기화 되기 때문에 위 코드가 정상 동작 하지 않는 것 이다. (false -> [클릭 이벤트] -> true -> [리컴포지션] -> false)
+
+그래서 Compose에 해당 값을 잘 살피라고 알릴 방법을 찾아야한다.
+
+```Kotlin
+@Composable
+fun Greeting(name: String) {
+    var expanded = remember { mutableStateOf(false) }
+
+    Surface(
+        color = MaterialTheme.colors.primary,
+        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+    ) {
+        Row(modifier = Modifier.padding(16.dp)) {
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+            ) {
+                Text(text = "Hello")
+
+                Text(text = "$name!")
+            }
+
+            OutlinedButton(onClick = { expanded.value = !expanded.value }) {
+                Text(if (expanded.value) "Show less" else "Show more")
+            }
+        }
+    }
+}
+```
+
+위와 같은 방법을 통해 컴포저블이 리컴포지션 될 때마다 state 값이 재설정 되지 않도록 해야한다.
