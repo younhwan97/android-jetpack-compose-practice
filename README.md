@@ -547,4 +547,4 @@ fun FavoriteCollectionCard(
 }
 ```
 
-<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-element-3.png?raw=true" width="150">
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-element-4.png?raw=true" width="350">
