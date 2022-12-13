@@ -40,7 +40,8 @@ fun MyApp(names: List<String> = listOf("World", "Compose")) {
 
 @Composable
 fun Greeting(name: String) {
-    var expanded = remember { mutableStateOf(false) }
+    val expanded = remember { mutableStateOf(false) }
+    val extraPadding = if (expanded.value) 48.dp else 0.dp
 
     Surface(
         color = MaterialTheme.colors.primary,
@@ -50,6 +51,7 @@ fun Greeting(name: String) {
             Column(
                 modifier = Modifier
                     .weight(1f)
+                    .padding(bottom = extraPadding)
             ) {
                 Text(text = "Hello")
 

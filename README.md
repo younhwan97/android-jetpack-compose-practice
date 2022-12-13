@@ -209,3 +209,34 @@ fun Greeting(name: String) {
 ```
 
 위와 같은 방법을 통해 컴포저블이 리컴포지션 될 때마다 state 값이 재설정 되지 않도록 해야한다.
+
+이제 `expanded` state를 이용해 항목이 펼쳐지도록 하기 위해 다음과 같이 코드를 작성한다.
+
+```Kotlin
+@Composable
+fun Greeting(name: String) {
+    val expanded = remember { mutableStateOf(false) }
+    val extraPadding = if (expanded.value) 48.dp else 0.dp
+
+    Surface(
+        color = MaterialTheme.colors.primary,
+        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+    ) {
+        Row(modifier = Modifier.padding(16.dp)) {
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(bottom = extraPadding)
+            ) {
+                Text(text = "Hello")
+
+                Text(text = "$name!")
+            }
+
+            OutlinedButton(onClick = { expanded.value = !expanded.value }) {
+                Text(if (expanded.value) "Show less" else "Show more")
+            }
+        }
+    }
+}
+```
