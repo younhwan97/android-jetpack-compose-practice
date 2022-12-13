@@ -11,7 +11,9 @@
 
 Compose란 기존 XML 방식에서 벗어난 Android의 최신 **UI 도구 키트**로서 XML 방식에 비해 더 쉽고 빠르게 UI를 작성할 수 있다.
 
-Compose는 다음과 같은 특징을 통해 UI를 쉽고 빠르게 작성할 수 있다.
+<br>
+
+**Compose의 특성**
 
 * 선언형 UI(Declarative UI): 선언형 UI란 어떤 방법으로 UI를 생성해야 하는지를 **생성방법**을 설명하는 것이 아닌, 어떤 결과가 나와야 하는지를 나타내도록 프로그래밍 하는 것. (어떤 방법으로 그릴지는 전적으로 프레임워크에 맡김)
 
@@ -25,7 +27,7 @@ Android Studio → New Project → Empty Compose Activity
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/create-compose-project-step-1.png?raw=true" width="700" height="500">
 
-(min SDK: API 21)
+> minimumSdkVersion으로 API 수준 21 이상을 선택해야 한다. 이는 Compose에서 지원하는 최소 API 수준이다.
 
 <br/>
 
