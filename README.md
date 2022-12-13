@@ -10,9 +10,9 @@ Compose는 다음과 같은 특징을 통해 UI를 쉽고 빠르게 작성할 �
 
 ## <a href="https://github.com/younhwan97/android-jetpack-compose-practice/tree/main/jetpack-compose-basic">Compose basic</a>
 
-### 1. 프로젝트 생성
+### 1. Starting a new Compose project
 
-Android Studio -> New Project -> Empty Compose Activity
+Android Studio → New Project → Empty Compose Activity
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/create-compose-project-step-1.png?raw=true" width="700" height="500">
 
@@ -62,7 +62,7 @@ fun Greeting(name: String) {
 
 Surface 및 Text와 같은 대부분의 Compose UI 요소는 modifier라는 매개변수를 허용한다. 
 
-modifer를 통해 composable을 다양하게 수정할 수 있다.
+modifer를 통해 컴포저블을 다양하게 수정할 수 있다.
 
 ```Kotlin
 @Composable
@@ -412,4 +412,29 @@ Compose baisc에서 기본적인 compose 사용법에 대해 익혔다면, 지�
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-design-guide.png?raw=true" width="350">
 
 시작하기 앞서 [Android Github BasicLayoutsCodelab](https://github.com/googlecodelabs/android-compose-codelabs/tree/main/BasicLayoutsCodelab)에서 기본 테마 및 리소스가 포함된 프로젝트를 복제한다.
+
+<br/>
+
+### 1. Start with a plan
+
+디자인을 구현하라는 요청을 받았을 때 먼저 디자인의 구조를 명확하게 파악하는 것이 좋다. 
+
+곧바로 코딩을 시작하는 대신 디자인을 분석해 보자. 위 UI를 여러 개의 재사용 가능한 부분으로 나누려면 어떻게 해야 할까?
+
+<br>
+
+먼저 가장 높은 추상화 단계에서는 이 다지인을 두 부분으로 나눌 수 있다.
+
+* 콘텐츠
+* 바텀 내비게이션
+
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-design-guide-2.png?raw=true" width="350">
+
+그리고 콘텐츠는 다음과 같이 세 부분으로 구성된다.
+
+* 검색창
+* ALIGN YOUR BODY
+* FAVORITE COLLECTIONS
+
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-design-guide-3.png?raw=true" width="350">
 
