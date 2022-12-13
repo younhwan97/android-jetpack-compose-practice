@@ -542,7 +542,7 @@ fun AlignYourBodyRow(
 }
 ```
 
-
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-lazy-row.png?raw=true" width="550">
 
 <br/>
 
