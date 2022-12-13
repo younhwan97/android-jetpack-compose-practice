@@ -185,7 +185,7 @@ fun FavoriteCollectionsGrid(
         rows = GridCells.Fixed(2),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
-        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 16.dp),
+        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
         modifier = modifier.height(120.dp)
     ) {
         items(favoriteCollectionsData) { item ->
@@ -221,7 +221,21 @@ fun HomeSection(
 // Step: Home screen - Scrolling
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
-    // Implement composable here
+    Column(
+        modifier = modifier.padding(vertical = 16.dp)
+    ) {
+        SearchBar(
+            modifier = Modifier.padding(horizontal = 16.dp)
+        )
+
+        HomeSection(title = R.string.align_your_body) {
+            AlignYourBodyRow()
+        }
+
+        HomeSection(title = R.string.favorite_collections) {
+            FavoriteCollectionsGrid()
+        }
+    }
 }
 
 // Step: Bottom navigation - Material
@@ -233,7 +247,7 @@ private fun SootheBottomNavigation(modifier: Modifier = Modifier) {
 // Step: MySoothe App - Scaffold
 @Composable
 fun MySootheApp() {
-    // Implement composable here
+
 }
 
 

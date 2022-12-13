@@ -658,3 +658,30 @@ fun HomeSection(
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-home-section.png?raw=true" width="550">
 
+<br/>
+
+### 6. HomeScreen
+
+```Kotlin
+@Composable
+fun HomeScreen(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier.padding(vertical = 16.dp)
+    ) {
+        SearchBar(
+            modifier = Modifier.padding(horizontal = 16.dp)
+        )
+
+        HomeSection(title = R.string.align_your_body) {
+            AlignYourBodyRow()
+        }
+
+        HomeSection(title = R.string.favorite_collections) {
+            FavoriteCollectionsGrid()
+        }
+    }
+}
+```
+
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-home-screen.png?raw=true" width="550">
+
