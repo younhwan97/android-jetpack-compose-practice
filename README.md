@@ -481,6 +481,8 @@ SearchBar 컴포저블 함수는 modifier 매개변수를 받아서 TextField에
 ```Kotlin
 @Composable
 fun AlignYourBodyElement(
+    @DrawableRes drawable: Int,
+    @StringRes text: Int,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -488,7 +490,7 @@ fun AlignYourBodyElement(
         modifier = modifier
     ) {
         Image(
-            painterResource(id = R.drawable.ab1_inversions),
+            painterResource(id = drawable),
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = Modifier
@@ -496,7 +498,7 @@ fun AlignYourBodyElement(
                 .clip(CircleShape)
         )
         Text(
-            stringResource(id = R.string.ab1_inversions),
+            stringResource(id = text),
             style = MaterialTheme.typography.h3,
             modifier = Modifier
                 .paddingFromBaseline(top = 24.dp, bottom = 8.dp)
@@ -507,4 +509,42 @@ fun AlignYourBodyElement(
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-element-2.png?raw=true" width="150">
 
+<br/>
 
+### 4. "FAVORITE COLLECTIONS" Section
+
+#### 4-1. Element
+
+```Kotlin
+@Composable
+fun FavoriteCollectionCard(
+    @DrawableRes drawable: Int,
+    @StringRes text: Int,
+    modifier: Modifier = Modifier
+) {
+    Surface(
+        shape = MaterialTheme.shapes.small,
+        modifier = modifier
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.width(192.dp)
+        ) {
+            Image(
+                painterResource(id = drawable),
+                contentDescription = null,
+                modifier = Modifier.size(56.dp),
+                contentScale = ContentScale.Crop
+            )
+            Text(
+                stringResource(id = text),
+                style = MaterialTheme.typography.h3,
+                modifier = Modifier.padding(horizontal = 16.dp)
+            )
+        }
+
+    }
+}
+```
+
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-element-3.png?raw=true" width="150">
