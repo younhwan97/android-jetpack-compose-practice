@@ -287,7 +287,7 @@ fun OnboardingPreview() {
 
 그리고 `shouldShowOnboarding` state에 따라 OnboardingScreen 또는 Greetings을 보여줄지 선택한다. 
 
-위 OnboardingScreen 컴포저블에서 `shouldShowOnboarding` state는 hoisting 돼야 한다.
+그렇기 때문에 OnboardingScreen 컴포저블에서 `shouldShowOnboarding` state는 hoisting 돼야 한다.
 
 ```Kotlin
 class MainActivity : ComponentActivity() {
@@ -374,4 +374,14 @@ fun OnboardingScreen(
     }
 }
 ```
+
+<br/>
+
+### 7. Creating a performant lazy list
+
+기존 XML의 RecyclerView에 해당하는 부분으로, Greeting의 항목이 늘어났을 때 처리하는 방법에 대해 알아본다.
+
+더이상 `ViewGroup`, `LayoutManager`, `ViewHolder`, `Adapter`, `DiffUtil`, `Item layout`를 사용 할 필요가 없다.
+
+Compose에서는 `LazyColumn` 컴포저블에 데이터만 넣으면 (프레임워크가) 알아서 그려준다.
 
