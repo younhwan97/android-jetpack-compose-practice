@@ -490,7 +490,7 @@ SearchBar 컴포저블 함수는 modifier 매개변수를 받아서 TextField에
 
 ### 3. "ALIGN YOUR BODY" Section
 
-#### 3-1. Element
+#### 3-1. Item
 
 ```Kotlin
 @Composable
@@ -562,7 +562,7 @@ fun AlignYourBodyRow(
 
 ### 4. "FAVORITE COLLECTIONS" Section
 
-#### 4-1. Element
+#### 4-1. Item
 
 ```Kotlin
 @Composable
@@ -855,3 +855,51 @@ private fun StatelessCounter(
     }
 }
 ```
+
+<br/>
+
+### 2. Wellness Task Item
+
+```Kotlin
+@Composable
+fun WellnessTaskItem(taskName: String, modifier: Modifier = Modifier) {
+    var checkedState by remember { mutableStateOf(false) }
+
+    WellnessTaskItem(
+        taskName = taskName,
+        checked = checkedState,
+        onCheckedChange = { newValue -> checkedState = newValue },
+        onClose = {}, // we will implement this later!
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun WellnessTaskItem(
+    taskName: String,
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit,
+    onClose: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            modifier = Modifier
+                .weight(1f)
+                .padding(start = 16.dp),
+            text = taskName
+        )
+        Checkbox(
+            checked = checked,
+            onCheckedChange = onCheckedChange
+        )
+        IconButton(onClick = onClose) {
+            Icon(Icons.Filled.Close, contentDescription = "Close")
+        }
+    }
+}
+```
+
