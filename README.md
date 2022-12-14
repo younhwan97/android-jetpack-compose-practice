@@ -754,3 +754,6 @@ fun MySootheApp() {
 
 ## <a href="https://github.com/younhwan97/android-jetpack-compose-practice/tree/main/jetpack-compose-basic">State in Compose</a>
 
+State에 관 자세히 알아보기 위해 다음과 같은 Wellness 앱을 구현한다.
+
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/state-in-compose-purpose.png?raw=true" width="350">
