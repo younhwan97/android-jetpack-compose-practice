@@ -754,6 +754,17 @@ fun MySootheApp() {
 
 ## <a href="https://github.com/younhwan97/android-jetpack-compose-practice/tree/main/jetpack-compose-basic">State in Compose</a>
 
-State에 관 자세히 알아보기 위해 다음과 같은 Wellness 앱을 구현한다.
+State에 관해 자세히 알아보기 위해 다음과 같은 Wellness 앱을 구현한다.
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/state-in-compose-purpose.png?raw=true" width="350">
+
+State란 **변할 수 있는 값**이다. 예를 들면 다음과 같은 것도 모두 state이다.
+
+* 카카오톡에서 가장 최근에 수신된 메시지
+* 사용자 프로필 사진
+* 리스트 스크롤 위치
+
+<br/>
+
+    핵심 아이디어: 상태에 따라 특정 시점에 UI에 **표시**되는 항목이 결정된다.
+
