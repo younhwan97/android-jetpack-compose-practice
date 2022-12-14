@@ -21,7 +21,8 @@ Compose란 기존 XML 방식에서 벗어난 Android의 최신 **UI 도구 키�
 
 ## <a href="https://github.com/younhwan97/android-jetpack-compose-practice/tree/main/jetpack-compose-basic">Compose basic</a>
 
-> 💡 Compose 프로젝트를 생성하고 선언적 UI의 기본사항을 직접 사용해본다. <br/> 이를 통해 컴포저블과 modifier가 무엇인지 알아보고, Row 및 Column과 같은 기본 UI 요소를 사용하는 방법과 앱에 State를 지정하는 방법을 익힌다.
+> 💡 Compose 프로젝트를 생성하고 선언적 UI의 기본사항을 직접 사용해본다. <br/> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이를 통해 컴포저블과 modifier가 무엇인지 알아보고, Row 및 Column과 같은 기본 UI 요소를 사용하는 방법과 앱에 State를 지정하는 방법을 익힌다.
 
 ### 1. Starting a new Compose project
 
@@ -768,5 +769,5 @@ State란 **변경될 수 있는 모든 값**이다. 예를 들면 다음과 같�
 
 <br/>
 
-    핵심 아이디어: 상태에 따라 특정 시점에 UI에 표시되는 항목이 결정된다.
+    핵심 아이디어: State에 따라 특정 시점에 UI에 표시되는 항목이 결정된다.
 
