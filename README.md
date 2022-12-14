@@ -21,8 +21,8 @@ Compose란 기존 XML 방식에서 벗어난 Android의 최신 **UI 도구 키�
 
 ## <a href="https://github.com/younhwan97/android-jetpack-compose-practice/tree/main/jetpack-compose-basic">Compose basic</a>
 
-> 💡 Compose 프로젝트를 생성하고 선언적 UI의 기본사항을 직접 사용해본다. <br/> 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이를 통해 컴포저블과 modifier가 무엇인지 알아보고, Row 및 Column과 같은 기본 UI 요소를 사용하는 방법과 앱에 State를 지정하는 방법을 익힌다.
+> 🎯 Compose 프로젝트를 생성하고 선언적 UI의 기본사항을 직접 사용해본다. <br/> 
+이를 통해 컴포저블과 modifier가 무엇인지 알아보고, Row 및 Column과 같은 기본 UI 요소를 사용하는 방법과 앱에 State를 지정하는 방법을 익힌다.
 
 ### 1. Starting a new Compose project
 
@@ -30,7 +30,7 @@ Android Studio → New Project → Empty Compose Activity
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/create-compose-project-step-1.png?raw=true" width="700" height="500">
 
-    minimumSdkVersion으로 API 수준 21 이상을 선택해야 한다. 이는 Compose에서 지원하는 최소 API 수준이다.
+> 💡 minimumSdkVersion으로 API 수준 21 이상을 선택해야 한다. 이는 Compose에서 지원하는 최소 API 수준이다.
 
 <br/>
 
