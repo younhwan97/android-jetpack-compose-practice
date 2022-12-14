@@ -16,7 +16,7 @@ Compose란 기존 XML 방식에서 벗어난 Android의 최신 **UI 도구 키�
 
 **Compose의 특성**
 
-* 선언적 UI(Declarative UI): 선언형 UI란 어떤 방법으로 UI를 생성해야 하는지를 **생성방법**을 설명하는 것이 아닌, 어떤 결과가 나와야 하는지를 나타내도록 프로그래밍 하는 것. (어떤 방법으로 그릴지는 전적으로 프레임워크에 맡김)
+* **선언적 UI(Declarative UI):** 선언적 UI란 어떤 방법으로 UI를 생성해야 하는지를 **생성방법**을 설명하는 것이 아닌, 어떤 결과가 나와야 하는지를 나타내도록 프로그래밍 하는 것. ( 어떤 방법으로 그릴지는 전적으로 프레임워크에 맡김 )
 
 <br/>
 
@@ -981,6 +981,47 @@ class WellnessViewModel : ViewModel() {
 
 fun getWellnessTasks() = List(30) { i -> WellnessTask(i, "Task $i") }
 ```
+
+<br/>
+
+### 5. LiveData vs State
+
+기존 XML를 사용하는 MVVM 아키텍쳐에서는 viewModel에서 다음과 같이 LiveData를 사용했다. 
+
+```Kotlin
+class MainViewModel : ViewModel() {
+
+    private var _testMutableLiveData = MutableLiveData(0)
+    val testLiveData : LiveData<Int>
+        get() = _testMutableLiveData
+
+    fun plus(){
+        _testMutableLiveData.value = _testMutableLiveData.value!!.plus(1)
+    }
+}
+```
+
+<br/>
+
+**그렇다면 LiveData와 State는 무엇이 다를까 ❓**
+
+LiveData의 특징은 observe 메서드를 통해 값이 변하는 것을 관찰 할 수 있다는 것이다.
+
+이를 이용해 값의 변화를 감지하면, 다음과 같이 미리 정의된 로직이 실행된다. 
+
+```Kotlin
+viewModel.testLiveData.observe(this) {
+    findViewById<TextView>(R.id.count).text = it.toString()
+}
+```
+
+위 방법은 UI 업데이트를 **어떻게 할지** 전적으로 개발자가 책임진다. 
+
+<br>
+
+하지만 State는 그렇지 않다. 값이 바뀌면 State에 알맞은 UI로 프레임워크가 알아서 다시 그려준다. 
+
+개발자가 직접 UI를 갱신하지 않는다.
 
 <br/>
 
