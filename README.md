@@ -4,6 +4,7 @@
 * [Compose basic](#Compose-basic)
 * [Compose basic layout](#Compose-basic-layout)
 * [State in Compose](#State-in-Compose)
+* [Compose theming](#Compose-theming)
 
 <br/>
 
@@ -980,4 +981,8 @@ class WellnessViewModel : ViewModel() {
 
 fun getWellnessTasks() = List(30) { i -> WellnessTask(i, "Task $i") }
 ```
+
+<br/>
+
+## <a href="https://github.com/younhwan97/android-jetpack-compose-practice/tree/main/jetpack-compose-theming">Compose theming</a>
 
