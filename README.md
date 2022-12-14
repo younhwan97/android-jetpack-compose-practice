@@ -767,7 +767,35 @@ State란 **변경될 수 있는 모든 값**이다. 예를 들면 다음과 같�
 * 사용자 프로필 사진
 * 리스트 스크롤 위치
 
+> 💡 핵심 아이디어: State에 따라 특정 시점에 UI에 표시되는 항목이 결정된다.
+
 <br/>
 
-    핵심 아이디어: State에 따라 특정 시점에 UI에 표시되는 항목이 결정된다.
+### 1. Water Counter
+
+remember을 이용해 리컴포지션에 대응할 수 있는 컴포저블을 다음과 같이 생성할 수 있다.
+
+```Kotlin
+@Composable
+fun WaterCounter(
+    modifier: Modifier = Modifier
+) {
+    var count by rememberSaveable { mutableStateOf(0) }
+
+    Column(
+        modifier = modifier.padding(16.dp)
+    ) {
+        Text(
+            text = "You've had ${count} glasses.",
+        )
+
+        Button(
+            onClick = { count++ },
+            modifier = Modifier.padding(top = 8.dp)
+        ) {
+            Text(text = "Add one")
+        }
+    }
+}
+```
 
