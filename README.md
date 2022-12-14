@@ -863,7 +863,7 @@ private fun StatelessCounter(
 ```Kotlin
 @Composable
 fun WellnessTaskItem(taskName: String, modifier: Modifier = Modifier) {
-    var checkedState by remember { mutableStateOf(false) }
+    var checkedState by rememberSaveable { mutableStateOf(false) }
 
     WellnessTaskItem(
         taskName = taskName,
@@ -903,3 +903,37 @@ fun WellnessTaskItem(
 }
 ```
 
+<br/>
+
+### 3. Wellness Task List (LazyColumn)
+
+```Kotlin
+@Composable
+fun WellnessTaskList(
+    modifier: Modifier = Modifier,
+    list: List<WellnessTask> = remember { getWellnessTasks() }
+) {
+    LazyColumn(
+        modifier = modifier
+    ) {
+        items(list) { task ->
+            WellnessTaskItem(taskName = task.label)
+        }
+    }
+}
+
+fun getWellnessTasks() = List(30) { i -> WellnessTask(i, "Task $i") }
+```
+
+**WellnessTask**
+
+```Kotlin
+data class WellnessTask(
+    val id: Int,
+    val label: String
+)
+```
+
+
+
+<br>
