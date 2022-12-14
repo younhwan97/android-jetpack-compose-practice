@@ -16,6 +16,19 @@ fun WaterCounter(
 ) {
     var count by rememberSaveable { mutableStateOf(0) }
 
+    StatelessCounter(
+        onIncrement = { count++ },
+        count = count,
+        modifier = modifier
+    )
+}
+
+@Composable
+private fun StatelessCounter(
+    onIncrement: () -> Unit,
+    count: Int,
+    modifier: Modifier
+) {
     Column(
         modifier = modifier.padding(16.dp)
     ) {
@@ -26,7 +39,7 @@ fun WaterCounter(
         )
 
         Button(
-            onClick = { count++ },
+            onClick = onIncrement,
             modifier = Modifier.padding(top = 8.dp)
         ) {
             Text(text = "Add one")

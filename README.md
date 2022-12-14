@@ -799,3 +799,59 @@ fun WaterCounter(
 }
 ```
 
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/state-in-compose-1.png?raw=true" width="350">
+
+화면 전환 및 다크 모드등의 모든 리컴포지션에 대응가능한 컴포저블을 생성했다.
+
+<br/>
+
+하지만 위와 같이 state를 내부에 가지고 있는 컴포저블은 재사용 가능성이 낮고, 테스트하기 어려운 경향이 있다.
+
+그렇기 때문에 state를 상위 컴포저블로 올려 state를 갖지 않는 컴포저블로 만들면 이점을 가져올 수 있다. (= State hoisting)
+
+```Kotlin
+@Composable
+fun WaterCounter(
+    modifier: Modifier = Modifier
+) {
+    var count by rememberSaveable { mutableStateOf(0) }
+
+    StatelessCounter(
+        onIncrement = { count++ },
+        count = count,
+        modifier = modifier
+    )
+
+    var juiceCount by rememberSaveable { mutableStateOf(0) }
+
+    StatelessCounter(
+        onIncrement = { juiceCount++ },
+        count = juiceCount, modifier =
+        modifier
+    )
+}
+
+@Composable
+private fun StatelessCounter(
+    onIncrement: () -> Unit,
+    count: Int,
+    modifier: Modifier
+) {
+    Column(
+        modifier = modifier.padding(16.dp)
+    ) {
+
+
+        Text(
+            text = "You've had ${count} glasses.",
+        )
+
+        Button(
+            onClick = onIncrement,
+            modifier = Modifier.padding(top = 8.dp)
+        ) {
+            Text(text = "Add one")
+        }
+    }
+}
+```
