@@ -16,18 +16,18 @@ Compose란 기존 XML 방식에서 벗어난 Android의 최신 **UI 도구 키�
 
 **Compose의 특성**
 
-* **선언적 UI(Declarative UI):** 선언적 UI란 어떤 방법으로 UI를 생성해야 하는지를 **생성방법**을 설명하는 것이 아닌, 어떤 결과가 나와야 하는지를 나타내도록 프로그래밍 하는 것. ( 어떤 방법으로 그릴지는 전적으로 프레임워크에 맡김 )
+* **선언적 UI(Declarative UI):** 선언적 UI란 어떤 방법으로 UI를 생성해야 하는지를 **생성방법**을 설명하는 것이 아닌, 어떤 결과가 나와야 하는지를 나타내도록 프로그래밍 하는 것. (어떤 방법으로 그릴지는 전적으로 프레임워크에 맡김)
 
 <br/>
 
 ## <a href="https://github.com/younhwan97/android-jetpack-compose-practice/tree/main/jetpack-compose-basic">Compose basic</a>
 
 > 🎯 Compose 프로젝트를 생성하고 선언적 UI의 기본사항을 직접 사용해본다. <br/> 
-이를 통해 컴포저블과 modifier가 무엇인지 알아보고, Row 및 Column과 같은 기본 UI 요소를 사용하는 방법과 앱에 State를 지정하는 방법을 익힌다.
+이를 통해 컴포저블과 Modifier가 무엇인지 알아보고, Row 및 Column과 같은 기본 UI 요소를 사용하는 방법과 앱에 State를 지정하는 방법을 익힌다.
 
 ### 1. Starting a new Compose project
 
-Android Studio → New Project → Empty Compose Activity
+`Android Studio → New Project → Empty Compose Activity`
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/create-compose-project-step-1.png?raw=true" width="700" height="500">
 
@@ -75,7 +75,7 @@ fun Greeting(name: String) {
 
 #### 3-2. modifier
 
-Surface 및 Text와 같은 대부분의 Compose UI 요소는 modifier라는 매개변수를 허용한다. 
+Surface 및 Text와 같은 대부분의 Compose UI는 modifier라는 매개변수를 허용한다. 
 
 modifer를 통해 컴포저블을 다양하게 수정할 수 있다.
 
@@ -85,7 +85,10 @@ fun Greeting(name: String) {
     Surface(
         color = MaterialTheme.colors.primary
     ) {
-        Text(text = "Hello $name!", modifier = Modifier.padding(16.dp))
+        Text(
+            text = "Hello $name!", 
+            modifier = Modifier.padding(16.dp)
+        )
     }
 }
 ```
@@ -96,9 +99,16 @@ fun Greeting(name: String) {
 
 ### 4. Columns and Rows
 
+Compose에서는 다양한 UI를 생성하기 위해 `Column`, `Row` 그리고 `Box` 표준 레이아웃을 사용할 수 있다.
+
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/columns-and-rows-1.png?raw=true" width="550">
 
-Compose에서는 다양한 UI를 생성하기 위해 `Column`, `Row` 그리고 `Box` 표준 레이아웃을 사용할 수 있다.
+<br/>
+
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/columns-and-rows-2.png?raw=true" width="550">
+
+위와 같은 UI를 어떻게 생성 해야할까?
+
 
 ```Kotlin
 @Composable
@@ -139,7 +149,7 @@ fun Greeting(name: String) {
 }
 ```
 
-<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/columns-and-rows-2.png?raw=true" width="550">
+
 
 <br/>
 
@@ -1020,6 +1030,8 @@ viewModel.testLiveData.observe(this) {
 <br>
 
 하지만 State는 그렇지 않다. 값이 바뀌면 State에 알맞은 UI로 프레임워크가 알아서 다시 그려준다. 
+
+Compose에서는 한 번 그려진 UI를 수정할 수 없다. state가 바뀌면 그에 맞는 UI를 다시 그릴 뿐이다.
 
 개발자가 직접 UI를 갱신하지 않는다.
 
