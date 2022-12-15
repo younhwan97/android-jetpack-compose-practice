@@ -1047,7 +1047,7 @@ Compose에서는 한 번 그려진 UI를 수정할 수 없다. state가 바뀌�
 
 ## <a href="https://github.com/younhwan97/android-jetpack-compose-practice/tree/main/jetpack-compose-theming">Compose theming</a>
 
-Jetpack compose 프로젝트 생성시 다음과 같은 디렉토리 및 Kotlin 파일이 생성되는 것을 확인할 수 있다.
+Jetpack compose 프로젝트 생성시 다음과 같은 디렉토리 및 kotlin 파일이 생성되는 것을 확인할 수 있다.
 
     - ui  
         - theme
@@ -1055,4 +1055,11 @@ Jetpack compose 프로젝트 생성시 다음과 같은 디렉토리 및 Kotlin 
             - Shape.kt
             - Theme.kt
             - Type.kt
+
+Compose에서 새로 생긴 UI 테마로써 그 역할은 다음과 같다.
+
+- **Color.kt:** 기존에는 앱에서 자주쓰는 색상들을 res → colors.xml 에 저장해왔다. 이제는 Colors.kt 같은 kotlin 파일에 저장한다.
+- **Shape.kt:** 원래 Shape들을 drawables 아래에 xml로 만들어서 배경으로 넣어주곤 했다. Compose에는 Shape라는 파라미터를 정의해주면 알아서 둥글게 처리된다. 통일감있는 둥글기 처리를 위해 이 Shape의 Radius값들도 테마로서 정의할 수 있다. 
+- **Theme.kt:** theme.xml에 저장하고는 했었던 내용들을 Theme.kt에 작성할 수 있다.
+- **Type.kt:** 타이포 그래피를 정의할 수 있다. 커스텀 폰트를 사용하기 위해서 앱의 res → font에 사용할 font를 넣는 방식은 같다.
 
