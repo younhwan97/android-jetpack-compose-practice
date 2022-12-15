@@ -114,11 +114,13 @@ Compose에서는 다양한 UI를 생성하기 위해 `Column`, `Row` 그리고 `
 ```Kotlin
 @Composable
 fun MyApp(names: List<String> = listOf("World", "Compose")) {
-    // A surface container using the 'background' color from the theme
-    Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+    Surface(
+        color = MaterialTheme.colors.background,
+        modifier = Modifier.fillMaxSize()
+    ){
         Column(
             modifier = Modifier.padding(vertical = 4.dp)
-        ) {
+        ){
             for (name in names) {
                 Greeting(name = name)
             }
@@ -132,10 +134,11 @@ fun Greeting(name: String) {
         color = MaterialTheme.colors.primary,
         modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
     ) {
-        Row(modifier = Modifier.padding(16.dp)) {
+        Row(
+            modifier = Modifier.padding(16.dp)
+        ) {
             Column(
-                modifier = Modifier
-                    .weight(1f)
+                modifier = Modifier.weight(1f)
             ) {
                 Text(text = "Hello")
 
@@ -160,7 +163,7 @@ fun Greeting(name: String) {
 
 <img src="https://developer.android.com/static/codelabs/jetpack-compose-basics/img/783e161e8bb1b2d5.gif?hl=ko" width="550" height="500">
 
-이러한 레이아웃을 만들기 위해서 각 항목이 펼치진 상태인지를 가리키는 값을 어딘가에 저장해야 한다. 이 값을 **state**라고 한다.
+위와 같은 레이아웃을 만들기 위해서 각 항목이 펼치진 상태인지를 가리키는 값을 어딘가에 저장해야 한다. 이 값을 **state**라고 한다.
 
 요소마다 이러한 값이 필요하므로 이 값은 Greeting 컴포저블에 위치해야 한다.
 
@@ -199,7 +202,9 @@ Greeting 컴포저블에 `expanded` state를 만들고 Button 컴포저블의 �
 
 Jetpack compose에서 컴포저블의 state가 변경되면 해당 컴포저블 함수만을 다시호출해 UI를 다시 그린다. 
 
-이때 `expanded` state 또한 다시 생성, 초기화 되기 때문에 위 코드가 정상 동작 하지 않는 것 이다. (false -> [클릭 이벤트] -> true -> [리컴포지션] -> false)
+이때 `expanded` state 또한 다시 생성, 초기화 되기 때문에 위 코드가 정상 동작 하지 않는 것 이다. 
+
+`false -> [클릭 이벤트] -> true -> [리컴포지션] -> false`
 
 그래서 Compose에 해당 값을 잘 살피라고 알릴 방법을 찾아야한다.
 
