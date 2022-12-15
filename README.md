@@ -437,7 +437,7 @@ Compose에서는 `LazyColumn` 컴포저블에 데이터만 넣으면 나머진 �
 
 ## <a href="https://github.com/younhwan97/android-jetpack-compose-practice/tree/main/jetpack-compose-basic-layout">Compose basic layout</a>
 
-Compose baisc에서 기본적인 compose 사용법에 대해 익혔다면, 지금부터는 다음과 같은 디자인 가이드라인에 따라 앱 디자인을 구현한다.
+> 🎯 Compose baisc에서 기본적인 compose 사용법에 대해 익혔다면, 지금부터는 다음과 같은 디자인 가이드에 따라 보다 현실적이고 복잡한 레이아웃을 구현해 본다.
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-design-guide.png?raw=true" width="350">
 
@@ -447,9 +447,9 @@ Compose baisc에서 기본적인 compose 사용법에 대해 익혔다면, 지�
 
 ### 1. Start with a plan
 
-디자인을 구현하라는 요청을 받았을 때 먼저 디자인의 구조를 명확하게 파악하는 것이 좋다. 
+디자인을 구현하기 전 먼저 그 구조를 명확하게 파악하는 것이 좋다. 
 
-곧바로 코딩을 시작하는 대신 디자인을 분석해 보자. 위 UI를 여러 개의 재사용 가능한 부분으로 나누려면 어떻게 해야 할까?
+곧바로 코딩을 시작하는 대신 디자인을 분석해 보자. 위 UI를 여러 개의 재사용 가능한 컴포저블로 나누려면 어떻게 해야 할까?
 
 <br>
 
@@ -463,8 +463,8 @@ Compose baisc에서 기본적인 compose 사용법에 대해 익혔다면, 지�
 그리고 콘텐츠는 다음과 같이 세 부분으로 구성된다.
 
 * 검색창
-* ALIGN YOUR BODY
-* FAVORITE COLLECTIONS
+* "ALIGN YOUR BODY" section
+* "FAVORITE COLLECTIONS" section
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-design-guide-3.png?raw=true" width="350">
 
@@ -496,11 +496,9 @@ fun SearchBar(
 }
  ```
 
-SearchBar 컴포저블 함수는 modifier 매개변수를 받아서 TextField에 전달한다.
-
-이 방식은 Compose 가이드라인에 따른 권장사항이며, 이 방식을 사용하면 메서드의 호출자가 컴포저블의 디자인과 분위기를 수정할 수 있어 유연성이 높아지고 재사용이 가능하게 된다.
-
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-search-bar.png?raw=true" width="350">
+
+> SearchBar 컴포저블은 modifier를 받아서 TextField에 전달한다. <br/> 이 방식은 Compose 가이드라인에 따른 권장사항이며, 이 방식을 사용하면 메서드의 호출자가 컴포저블의 디자인과 분위기를 수정할 수 있어 유연성이 높아지고 재사용이 가능하게 된다.
 
 <br>
 
