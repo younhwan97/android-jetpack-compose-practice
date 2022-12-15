@@ -463,8 +463,8 @@ Compose에서는 `LazyColumn` 컴포저블에 데이터만 넣으면 나머진 �
 그리고 콘텐츠는 다음과 같이 세 부분으로 구성된다.
 
 * 검색창
-* "ALIGN YOUR BODY" section
-* "FAVORITE COLLECTIONS" section
+* "ALIGN YOUR BODY" Section
+* "FAVORITE COLLECTIONS" Section
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-design-guide-3.png?raw=true" width="350">
 
@@ -472,19 +472,19 @@ Compose에서는 `LazyColumn` 컴포저블에 데이터만 넣으면 나머진 �
 
 ### 2. Search bar
 
- ```Kotlin
- @Composable
+```Kotlin
+@Composable
 fun SearchBar(
     modifier: Modifier = Modifier
 ) {
     TextField(
         value = "",
         onValueChange = {},
-        modifier = modifier
-            .heightIn(min = 56.dp)
-            .fillMaxWidth(),
         leadingIcon = {
-            Icon(imageVector = Icons.Default.Search, contentDescription = "Search")
+            Icon(
+                imageVector = Icons.Default.Search, 
+                contentDescription = "Search"
+            )
         },
         colors = TextFieldDefaults.textFieldColors(
             backgroundColor = MaterialTheme.colors.surface
@@ -492,13 +492,16 @@ fun SearchBar(
         placeholder = {
             Text(stringResource(id = R.string.placeholder_search))
         },
+        modifier = modifier
+            .heightIn(min = 56.dp)
+            .fillMaxWidth()
     )
 }
- ```
+```
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-search-bar.png?raw=true" width="350">
 
-> SearchBar 컴포저블은 modifier를 받아서 TextField에 전달한다. <br/> 이 방식은 Compose 가이드라인에 따른 권장사항이며, 이 방식을 사용하면 메서드의 호출자가 컴포저블의 디자인과 분위기를 수정할 수 있어 유연성이 높아지고 재사용이 가능하게 된다.
+> 💡 SearchBar 컴포저블은 modifier를 받아서 TextField에 전달한다. <br/> 이 방식은 Compose 가이드라인에 따른 권장사항이며, 이 방식을 사용하면 메서드의 호출자가 컴포저블의 디자인과 분위기를 수정할 수 있어 유연성이 높아지고 재사용이 가능하게 된다.
 
 <br>
 
@@ -536,6 +539,8 @@ fun AlignYourBodyElement(
 ```
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/basic-layout-element-2.png?raw=true" width="150">
+
+> 💡 컴포저블의 재사용을 위해 이미지와 텍스트 리소스를 상위 컴포저블로 부터 매개변수로 전달 받도록 했다.
 
 <br/>
 
