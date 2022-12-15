@@ -285,7 +285,6 @@ state를 상위 항목으로 올릴 수 있게 되면 상태가 중복되는 버
 ```Kotlin
 @Composable
 fun OnboardingScreen(modifier: Modifier = Modifier) {
-    // TODO: This state should be hoisted
     var shouldShowOnboarding by remember { mutableStateOf(true) }
 
     Column(
@@ -312,7 +311,7 @@ fun OnboardingPreview() {
 }
 ```
 
-그리고 `shouldShowOnboarding` state에 따라 OnboardingScreen 또는 Greetings을 보여줄지 선택한다. 
+`shouldShowOnboarding` state에 따라 OnboardingScreen 또는 Greetings을 보여줄지 선택한다. 
 
 그렇기 때문에 OnboardingScreen 컴포저블에서 `shouldShowOnboarding` state는 hoisting 돼야 한다.
 
@@ -411,8 +410,10 @@ fun OnboardingScreen(
 ```Kotlin
 @Composable
 fun Greetings(names: List<String> = List(1000) {"$it"}) {
-    // A surface container using the 'background' color from the theme
-    Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+    Surface(
+        color = MaterialTheme.colors.background,
+        modifier = Modifier.fillMaxSize()
+    ) {
         Column(
             modifier = Modifier.padding(vertical = 4.dp)
         ) {
@@ -430,7 +431,7 @@ fun Greetings(names: List<String> = List(1000) {"$it"}) {
 
 더이상 리스트를 만들기 위해 `ViewGroup`, `LayoutManager`, `ViewHolder`, `Adapter`, `DiffUtil`, `Item layout`를 사용 할 필요가 없다.
 
-Compose에서는 `LazyColumn` 컴포저블에 데이터만 넣으면 (프레임워크가) 알아서 그려준다.
+Compose에서는 `LazyColumn` 컴포저블에 데이터만 넣으면 나머진 프레임워크가 알아서 그려준다.
 
 <br/>
 
