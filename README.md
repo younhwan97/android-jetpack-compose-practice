@@ -47,7 +47,7 @@ private fun Greeting(name: String) {
    Text(text = "Hello $name!") // 함수 내부에서 다른 Composable를 호출할 수 있다.
 }
 ```
-
+ 
 <br/>
 
 ### 3. Tweaking the UI
@@ -94,6 +94,8 @@ fun Greeting(name: String) {
 ```
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/tweaking-the-ui-2.png?raw=true" width="350">
+
+> 💡 <a href="https://developer.android.com/jetpack/compose/modifiers-list">Compose modifier list</a>에서 modifer를 이용해 컴포저블에 할 수 있는 다양한 수정 사항을 알아볼 수 있다.
 
 <br/>
 
