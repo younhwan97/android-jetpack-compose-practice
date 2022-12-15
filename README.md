@@ -73,11 +73,11 @@ fun Greeting(name: String) {
 
 <br/>
 
-#### 3-2. modifier
+#### 3-2. Modifier
 
 Surface 및 Text와 같은 대부분의 Compose UI는 modifier라는 매개변수를 허용한다. 
 
-modifer를 통해 컴포저블을 다양하게 수정할 수 있다.
+Modifer를 통해 컴포저블을 다양하게 수정할 수 있다.
 
 ```Kotlin
 @Composable
@@ -95,22 +95,21 @@ fun Greeting(name: String) {
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/tweaking-the-ui-2.png?raw=true" width="350">
 
-> 💡 <a href="https://developer.android.com/jetpack/compose/modifiers-list">Compose modifier list</a>에서 modifer를 이용해 컴포저블에 할 수 있는 다양한 수정 사항을 알아볼 수 있다.
+> 💡 <a href="https://developer.android.com/jetpack/compose/modifiers-list" target="_blank">Compose modifier list</a>에서 modifer를 이용해 컴포저블에 할 수 있는 다양한 수정 사항을 알아볼 수 있다.
 
 <br/>
 
 ### 4. Columns and Rows
 
-Compose에서는 다양한 UI를 생성하기 위해 `Column`, `Row` 그리고 `Box` 표준 레이아웃을 사용할 수 있다.
-
-<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/columns-and-rows-1.png?raw=true" width="550">
-
-<br/>
+Compose에서 다음과 같은 UI를 어떻게 생성할까?
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/columns-and-rows-2.png?raw=true" width="550">
 
-위와 같은 UI를 어떻게 생성 해야할까?
+<br/>
 
+Compose에서는 다양한 UI를 생성하기 위해 `Column`, `Row` 그리고 `Box` 레이아웃을 사용할 수 있다.
+
+<img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/columns-and-rows-1.png?raw=true" width="550">
 
 ```Kotlin
 @Composable
@@ -150,8 +149,6 @@ fun Greeting(name: String) {
     }
 }
 ```
-
-
 
 <br/>
 
