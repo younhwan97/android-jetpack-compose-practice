@@ -1047,3 +1047,12 @@ Compose에서는 한 번 그려진 UI를 수정할 수 없다. state가 바뀌�
 
 ## <a href="https://github.com/younhwan97/android-jetpack-compose-practice/tree/main/jetpack-compose-theming">Compose theming</a>
 
+Jetpack compose 프로젝트 생성시 다음과 같은 디렉토리 및 Kotlin 파일이 생성되는 것을 확인할 수 있다.
+
+    - ui  
+        - theme
+            - Color.kt
+            - Shape.kt
+            - Theme.kt
+            - Type.kt
+
