@@ -27,7 +27,7 @@ Compose란 기존 XML 방식에서 벗어난 Android의 최신 **UI 도구 키�
 
 ### 1. Starting a new Compose project
 
-`Android Studio → New Project → Empty Compose Activity`
+`Android Studio` → `New Project` → `Empty Compose Activity`
 
 <img src="https://github.com/younhwan97/android-jetpack-compose-practice/blob/main/images/create-compose-project-step-1.png?raw=true" width="700" height="500">
 
